@@ -8,7 +8,7 @@ require 'formula'
 class MacvimSplitBrowser < Formula
   homepage “https://github.com/alloy/macvim/“
   url “https://github.com/gregkellogg/macvim.git”
-  version “7.4-022”
+  version “740022”
 
   #  Added patch so it will compile easily on 10.9
   patch :DATA
