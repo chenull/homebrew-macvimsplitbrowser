@@ -3,7 +3,7 @@
 This tap hosts the formula for [**MacVim with file browser**](https://github.com/alloy/macvim/)
 
 ```
-$ brew tap chenull/macvimsplitbrowser
+$ brew tap gregkellogg/macvimsplitbrowser
 $ brew install macvim-split-browser
 ```
 
