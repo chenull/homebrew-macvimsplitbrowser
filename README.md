@@ -12,3 +12,9 @@ If you already installed MacVim using brew, remove it first
 ```
 $ brew uninstall macvim
 ```
+
+If you have RVM installed, make sure you use your systems ruby
+
+```
+$ rvm use system
+```
