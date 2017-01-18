@@ -1,12 +1,20 @@
 require 'formula'
 
+# Modified to have a file browser view more info below - I started to work on this my own and
+# found this from Sayid Munawar:  https://github.com/chenull - Thanks!
+# Icon provided by Dr. Slash http://drslash.com/icons/flat-osx/
+
+
 class MacvimSplitBrowser < Formula
   homepage 'https://github.com/alloy/macvim/'
-  url 'https://github.com/alloy/macvim/tarball/10e7bedcdb051833257ab4f6a437c4f09bc6d881'
-  version '20130307'
-  md5 'cae8566138c5c991a07f67ecaa010f73'
+  url 'https://github.com/gregkellogg/macvim.git'
+  version '740022'
 
-  head 'https://github.com/alloy/macvim.git', :branch => 'split-browser'
+  #  Added patch so it will compile easily on 10.9
+  patch :DATA
+  env :std
+
+  head 'https://github.com/gregkellogg/macvim.git', :branch => 'split-browser'
 
   def options
   [
@@ -88,3 +96,20 @@ class MacvimSplitBrowser < Formula
     EOS
   end
 end
+
+__END__
+diff --git a/src/os_mac.h b/src/os_mac.h
+index 78b79c2..54009ab 100644
+--- a/src/os_mac.h
++++ b/src/os_mac.h
+@@ -16,6 +16,9 @@
+ # define OPAQUE_TOOLBOX_STRUCTS 0
+ #endif
+ 
++/* Include MAC_OS_X_VERSION_* macros */
++#include <AvailabilityMacros.h>
++
+ /*
+  * Macintosh machine-dependent things.
+  *
+
